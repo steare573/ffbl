@@ -1,0 +1,7 @@
+ffbl_admin:
+    resource: "@FfblAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+ffbl_main:
+    resource: "@FfblMainBundle/Resources/config/routing.yml"
+    prefix:   /
