@@ -5,21 +5,109 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>{% block htmltag_inner_document_title %}FFBL{% endblock %}</title>
 		{% endblock %}
+		{% block include_css_global %}
+		<style type="text/css">
+			html{
+				padding: 0;
+				margin:0;
+				width:100%;
+				background-color:#EFF2F3;
+			}
+			body{
+				padding:0;
+				margin:0;
+			}
+			#header{ 
+				width: 100%;
+				height: 60px;
+				background-color:#26466D;
+				color: #66C1E3;
+				margin:0;
+				padding-top:30px;
+				
+				font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+				border-bottom:ridge 2px #66C1E3;
+			}
+			.wrapper{
+				width: 950px;
+				margin: 0 auto;
+			}
+			#header .header-logo {
+				float:left;
+				width:30%;
+
+				font-size:30px;
+				font-weight:bold;
+			}
+
+			#header .header-logo .small{
+				font-weight:normal;
+				font-size:20;
+			}
+			#header .header-nav-main{
+				padding:10px;
+			}
+			#header .header-nav-main ul{
+				list-style:none;
+				font-size:15px;
+				padding:0;
+				margin: 0;
+				float: right;
+				text-transform:uppercase;
+			}
+			#header .header-nav-main li{
+				display:inline;
+				padding: 0;
+				margin:10px;
+			}
+
+			.bright{
+				color: #E55451;
+			}
+			.main-body{
+				padding-top:20px;
+
+				font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+
+			}
+		</style>
+		{% endblock %}
+		{% block include_css_local %} {% endblock %}
 	</head>
 
 		<body>
 
 			{% block htmltag_inner_body %}
+
+
 			
-			{% block include_css_global %}{% endblock %}
-			{% block include_css_local %} {% endblock %}
+			<div id="header">
+				{% block header %}
+					<div class="wrapper">
+						<div class="header-logo">
+							FFBL<span class="small bright">.com</span>
+						</div>
+						<div class="header-nav-main">
+							<ul>
+								<li>Link 1</li>
+								<li>Link 2</li>
+								<li>Link 3</li>
+							</ul>
+						</div>
+					</div>
+				{% endblock %}
+			</div>
+			<div class="main-body">
+			<div class="wrapper">
 			{% block first %} First Block {% endblock %}
 			{% block second %} Second {% endblock %}
+			</div>
+			</div>
+			
+			
 			{% block include_javascript_global %} {% endblock %}
 			{% block include_javascript_local %} {% endblock %}
-			
 			{% endblock %}
-
 		</body>
 	{% endblock %}
 </html>
