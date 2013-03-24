@@ -1,0 +1,25 @@
+<html>
+	{% block htmltag_inner_html %}
+	<head>
+		{% block htmltag_inner_head %}
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>{% block htmltag_inner_document_title %}FFBL{% endblock %}</title>
+		{% endblock %}
+	</head>
+
+		<body>
+
+			{% block htmltag_inner_body %}
+			
+			{% block include_css_global %}{% endblock %}
+			{% block include_css_local %} {% endblock %}
+			{% block first %} First Block {% endblock %}
+			{% block second %} Second {% endblock %}
+			{% block include_javascript_global %} {% endblock %}
+			{% block include_javascript_local %} {% endblock %}
+			
+			{% endblock %}
+
+		</body>
+	{% endblock %}
+</html>
