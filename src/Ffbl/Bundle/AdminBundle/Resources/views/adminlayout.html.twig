@@ -1,8 +1,52 @@
 {% extends '::ffbllayout.html.twig' %}
 {% block nav_list %}
 	<ul>
-		<li><a href="" class="bright">Link 4</a></li>
-		<li><a href="">Link 5</a></li>
-		<li><a href="">Link 6</a></li>
+		<li><a href="{{ path('admin_home') }}" class="bright">Admin Home</a></li>
+		<li><a href="{{ path('admin_player') }}">Player</a></li>
+		<li><a href="{{ path('admin_user') }}">User</a></li>
+		
 	</ul>
+{% endblock %}
+{% block include_css_local %} 
+<style type="text/css">
+	#nav_secondary{
+		height:25px;
+		background-color:gray;
+		border-bottom: ridge 2px white;
+	}
+	#nav_secondary ul{
+				list-style:none;
+				font-size:15px;
+				padding:0;
+				margin: 0;
+				float: left;
+				text-transform:uppercase;
+				width: 100%;
+				font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+				height:25px;
+			}
+	#nav_secondary li{
+		
+		display:inline;
+		margin:0;
+		padding-left:10px;
+		padding-right:10px;
+		border-left:ridge 2px black;
+		border-right:ridge 2px black;
+		height:25px;
+	}
+
+</style>
+
+{% block include_css_page %}
+{% endblock %}
+{% endblock %}
+{% block nav_secondary %}
+<div id="nav_secondary">
+	<div class="wrapper">
+	{% block nav_secondary_list %}
+	{% endblock %}
+	</div>
+</div>
+
 {% endblock %}

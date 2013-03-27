@@ -1,3 +1,11 @@
 admin_home:
    pattern: /
    defaults: { _controller: FfblAdminBundle:Default:index }
+
+admin_player:
+   pattern: /player
+   defaults: {_controller: FfblAdminBundle:Player:index }
+
+admin_user:
+   pattern: /user
+   defaults: {_controller: FfblAdminBundle:User:index }

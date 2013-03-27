@@ -83,10 +83,28 @@
 				padding-top:20px;
 
 				font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+				margin-bottom:20px;
 
+			}
+			.wrapper-main{
+				width: 70%;
+				border: solid 1px black;
+				float:left;		
+				height: 100%;		
+			}
+			.wrapper-right{
+				width:28%;
+				border:solid 1px red;
+				float:right;
+				height:100%;
 			}
 			#header .header-nav-main a.bright{
 				color: #E55451;
+			}
+			#footer{
+				height:100px;
+				
+				width:100%;
 			}
 		</style>
 		{% endblock %}
@@ -103,7 +121,7 @@
 				{% block header %}
 					<div class="wrapper">
 						<div class="header-logo">
-							FFBL<span class="small bright">.com</span>
+							FFBL<span class="small bright" style="color: #E55451;">.com</span>
 						</div>
 						<div class="header-nav-main">
 							{% block nav_list %}
@@ -117,13 +135,25 @@
 					</div>
 				{% endblock %}
 			</div>
+			{% block nav_secondary %}
+			{% endblock %}
 			<div class="main-body">
 			<div class="wrapper">
-			{% block first %} First Block {% endblock %}
-			{% block second %} Second {% endblock %}
+			<div class="wrapper-main">
+			{% block content_main %}
+			{% endblock %}
+			</div>
+			<div class="wrapper-right">
 			</div>
 			</div>
-			
+			</div>
+			<div id="footer">
+				<div class="wrapper">
+				{% block footer %}
+
+				{% endblock %}
+				</div>
+			</div>
 			
 			{% block include_javascript_global %} {% endblock %}
 			{% block include_javascript_local %} {% endblock %}
