@@ -5,3 +5,6 @@ ffbl_admin:
 ffbl_main:
     resource: "@FfblMainBundle/Resources/config/routing.yml"
     prefix:   /
+
+logout:
+    path: /logout

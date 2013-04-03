@@ -6,108 +6,10 @@
 		<title>{% block htmltag_inner_document_title %}FFBL{% endblock %}</title>
 		{% endblock %}
 		{% block include_css_global %}
-		<style type="text/css">
+		{% stylesheets '../app/Resources/public/css/*' '../app/Resources/public/css/jquery-ui-themes-1.10.2/themes/ice/*' %}
+			<link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+		{% endstylesheets %}
 
-			html{
-				padding: 0;
-				margin:0;
-				width:100%;
-				background-color:#EFF2F3;
-				font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-			}
-			body{
-				padding:0;
-				margin:0;
-			}
-			#header{ 
-				width: 100%;
-				height: 60px;
-				background-color:#26466D;
-				color: #66C1E3;
-				margin:0;
-				padding-top:30px;
-				
-				font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-				border-bottom:ridge 2px #66C1E3;
-			}
-			.wrapper{
-				width: 950px;
-				margin: 0 auto;
-			}
-			#header .header-logo {
-				float:left;
-				width:15%;
-
-				font-size:30px;
-				font-weight:bold;
-			}
-
-			#header .header-logo .small{
-				font-weight:normal;
-				font-size:20;
-			}
-			#header .header-logo:hover{
-				cursor:pointer;
-			}
-
-			#header .header-nav-main{
-				padding:10px;
-			}
-			#header .header-nav-main ul{
-				list-style:none;
-				font-size:15px;
-				padding:0;
-				margin: 0;
-				float: right;
-				text-transform:uppercase;
-			}
-			#header .header-nav-main a{
-				text-decoration: none;
-				color: #66C1E3;
-			}
-			#header .header-nav-main a:hover{
-				text-decoration: none;
-				color: #99EEFF;
-			}
-			#header .header-nav-main a:active{
-				color: #E55451;
-			}
-
-			#header .header-nav-main li{
-				display:inline;
-				padding: 0;
-				margin:10px;
-			}
-
-			
-			.main-body{
-				padding-top:20px;
-
-				font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
-				margin-bottom:20px;
-
-			}
-			.wrapper-main{
-				width: 70%;
-				border: solid 1px black;
-				float:left;		
-				height: 100%;		
-			}
-			.wrapper-right{
-				width:28%;
-				border:solid 1px red;
-				float:right;
-				height:100%;
-			}
-			#header .header-nav-main a.bright{
-				color: #E55451;
-			}
-			#footer{
-				height:100px;
-				
-				width:100%;
-			}
-		</style>
 		{% endblock %}
 		{% block include_css_local %} {% endblock %}
 	</head>
@@ -140,7 +42,7 @@
 			{% endblock %}
 			<div class="main-body">
 			<div class="wrapper">
-			<div class="wrapper-main">
+			<div class="wrapper-main formee">
 			{% block content_main %}
 			{% endblock %}
 			</div>
@@ -156,7 +58,14 @@
 				</div>
 			</div>
 			
-			{% block include_javascript_global %} {% endblock %}
+			{% block include_javascript_global %}
+				<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+				<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+				{% javascripts '../app/Resources/public/js/*' %}
+					<script type="text/javascript" src="{{ asset_url }} "></script>
+				{% endjavascripts %}
+				
+			{% endblock %}
 			{% block include_javascript_local %} {% endblock %}
 			{% endblock %}
 		</body>

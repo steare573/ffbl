@@ -9,3 +9,13 @@ admin_player:
 admin_user:
    pattern: /user
    defaults: {_controller: FfblAdminBundle:User:index }
+
+tool_user_admintool:
+    pattern: /user/admintool
+    defaults: { _controller: FfblAdminBundle:User:admintool }
+
+ajax_user_admintool:
+    pattern: /user/ajax	defaults
+    defaults: { _controller: FfblAdminBundle:User:adminajax }
+    requirements:
+        _method: POST

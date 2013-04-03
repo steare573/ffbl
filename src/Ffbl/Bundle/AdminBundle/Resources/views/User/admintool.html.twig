@@ -1,0 +1,47 @@
+{% extends 'FfblAdminBundle::adminlayout.html.twig' %}
+{% block content_main %}
+<div id="dialog-container"></div>
+<input type="button" id="user-add" value="Add User"/>
+ 
+
+
+
+
+{% endblock %}
+{% block include_javascript_local %} 
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#user-add').click(function(){
+
+		$.post(
+			'{{ path('ajax_user_admintool')}}',
+			{
+				action: "display_form"
+
+			}, 
+			function(data){
+				$('#dialog-container').html(data.content).dialog(
+					{
+						title: "Create New User", 
+						height: 900,
+						width: 600,
+						buttons: [
+						{
+							text: "Cancel",
+							click: function(){ $(this).dialog('close');}
+						},
+						{
+							text: "Save",
+							click: function(){ alert('save this form')}
+						}
+
+						]
+					});
+			}
+		);
+		
+	});
+
+});
+</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'FfblMainBundle::mainlayout.html.twig' %}
+{% block content_main %}
+<div style="width:50%;">
+{% if error %}
+<div class="formee-error">{{ error.message }}</div>
+{% endif %}
+
+<form action="{{ path('login_check') }}" method="post" class="formee">
+<label for="username">Username:</label>
+<input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+<label for="password">Password</label>
+<input type="password" id="password" name="_password" />
+<input type="submit" value="Login" name="Login"/>
+</form>
+</div>
+{% endblock %}
